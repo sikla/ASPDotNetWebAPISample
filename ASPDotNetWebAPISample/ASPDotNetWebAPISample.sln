@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPDotNetWebAPISample", "ASPDotNetWebAPISample\ASPDotNetWebAPISample.csproj", "{5E57E03D-1576-4803-AA2B-034AB6077F2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInvokerSample", "ServiceInvokerSample\ServiceInvokerSample.csproj", "{43D4CFF2-5CC4-4A57-888F-56FD38F51F02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5E57E03D-1576-4803-AA2B-034AB6077F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E57E03D-1576-4803-AA2B-034AB6077F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E57E03D-1576-4803-AA2B-034AB6077F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43D4CFF2-5CC4-4A57-888F-56FD38F51F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D4CFF2-5CC4-4A57-888F-56FD38F51F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D4CFF2-5CC4-4A57-888F-56FD38F51F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D4CFF2-5CC4-4A57-888F-56FD38F51F02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

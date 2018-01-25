@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace ASPDotNetWebAPISample
@@ -20,6 +22,10 @@ namespace ASPDotNetWebAPISample
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            var bson = new BsonMediaTypeFormatter();
+            bson.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/vnd.contoso"));
+            config.Formatters.Add(bson);
 
             config.Formatters.Add(new ProductCsvFormatter());
         }
