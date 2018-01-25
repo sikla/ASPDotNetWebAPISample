@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASPDotNetWebAPISample.Formatters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -19,6 +20,8 @@ namespace ASPDotNetWebAPISample
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.Add(new ProductCsvFormatter());
         }
     }
 }
