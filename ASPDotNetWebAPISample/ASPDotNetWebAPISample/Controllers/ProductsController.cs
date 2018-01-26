@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
 
@@ -25,15 +27,29 @@ namespace ASPDotNetWebAPISample.Controllers
         }
 
         [Route("{id}")]
-        public Product GetProduct(int id)
+        public HttpResponseMessage GetProduct(int id)
         {
-            var product = products.FirstOrDefault((p) => p.Id == id);
-            if (product == null)
+            var product = new Product()
+            { Id = id, Name = "Gizmo", Category = "Widgets", Price = 1.99M };
+
+            IContentNegotiator negotiator = this.Configuration.Services.GetContentNegotiator();
+
+            ContentNegotiationResult result = negotiator.Negotiate(
+                typeof(Product), this.Request, this.Configuration.Formatters);
+            if (result == null)
             {
-                return null;
+                var response = new HttpResponseMessage(HttpStatusCode.NotAcceptable);
+                throw new HttpResponseException(response);
             }
 
-            return product;
+            return new HttpResponseMessage()
+            {
+                Content = new ObjectContent<Product>(
+                    product,                // What we are serializing 
+                    result.Formatter,           // The media formatter
+                    result.MediaType.MediaType  // The MIME type
+                )
+            };
         }
     }
 }
