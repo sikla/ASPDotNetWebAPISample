@@ -169,8 +169,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Binder\GeoPointModelBinder.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\MediaFormattersController.cs" />
+    <Compile Include="Controllers\ParameterBinderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Formatters\ProductCsvFormatter.cs" />
@@ -178,6 +180,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\GeoPoint.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -205,6 +208,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Books\" />
     <Folder Include="Views\MediaFormatters\" />
+    <Folder Include="Views\ParameterBinder\" />
     <Folder Include="Views\Products\" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,10 +1,14 @@
-﻿using ASPDotNetWebAPISample.Formatters;
+﻿using ASPDotNetWebAPISample.Binder;
+using ASPDotNetWebAPISample.Formatters;
+using ASPDotNetWebAPISample.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
+using System.Web.Http.ModelBinding.Binders;
 
 namespace ASPDotNetWebAPISample
 {
@@ -28,6 +32,9 @@ namespace ASPDotNetWebAPISample
             config.Formatters.Add(bson);
 
             config.Formatters.Add(new ProductCsvFormatter());
+
+            var provider = new SimpleModelBinderProvider(typeof(GeoPoint), new GeoPointModelBinder());
+            config.Services.Insert(typeof(ModelBinderProvider), 0, provider);
         }
     }
 }
